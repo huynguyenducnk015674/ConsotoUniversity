@@ -4,14 +4,16 @@ using ConsotoUniversityAppCore.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConsotoUniversityAppCore.Web.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20190707093146_AddDomainEntityCourse")]
+    partial class AddDomainEntityCourse
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,16 +25,9 @@ namespace ConsotoUniversityAppCore.Web.Migrations
                 {
                     b.Property<int>("CourseID");
 
-                    b.Property<DateTime>("ChgeDate");
-
-                    b.Property<string>("ChgeUser");
-
                     b.Property<int>("Credits");
 
-                    b.Property<DateTime>("Crt_Date");
-
-                    b.Property<string>("Crt_User")
-                        .HasMaxLength(10);
+                    b.Property<string>("Crt_User");
 
                     b.Property<int>("DepartmentID");
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsotoUniversityAppCore.Web.Configuration;
+using ConsotoUniversityAppCore.Web.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsotoUniversityAppCore.Web.Models
 {
-    public class Course
+    public class Course : DomainEntity<String>,IDateTracking
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Number")]
@@ -23,5 +25,7 @@ namespace ConsotoUniversityAppCore.Web.Models
         public Department Department { get; set; }   
         public ICollection<Enrollment> Enrollments { get; set; }
         public ICollection<CourseAssignment> CourseAssignments { get; set; }
+        public DateTime Crt_Date { get; set; }
+        public DateTime ChgeDate { get; set; }
     }
 }

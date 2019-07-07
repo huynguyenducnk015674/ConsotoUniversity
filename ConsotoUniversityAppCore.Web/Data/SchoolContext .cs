@@ -1,4 +1,6 @@
-﻿using ConsotoUniversityAppCore.Web.Models;
+﻿using ConsotoUniversityAppCore.Web.Configuration;
+using ConsotoUniversityAppCore.Web.Extensions;
+using ConsotoUniversityAppCore.Web.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,7 +25,9 @@ namespace ConsotoUniversityAppCore.Web.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Course>().ToTable("Course");
+            //modelBuilder.AddConfiguration()
+            modelBuilder.AddConfiguration(new CourseConfiguration());
+
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
             modelBuilder.Entity<Student>().ToTable("Student");
             modelBuilder.Entity<Department>().ToTable("Department");
